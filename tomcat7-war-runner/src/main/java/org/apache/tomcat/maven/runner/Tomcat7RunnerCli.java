@@ -88,10 +88,6 @@ public class Tomcat7RunnerCli
     static Option extractDirectory = OptionBuilder.withArgName( "extractDirectory" ).hasArg().withDescription(
         "path to extract war content, default value: .extract" ).create( "extractDirectory" );
 
-    static Option sessionManagerFactoryClassName = OptionBuilder.withArgName( "className" ).hasArg().withDescription(
-        "classname of a factory that creates a session manager" ).create( "sessionManagerFactory" );
-
-
     static Option loggerName = OptionBuilder.withArgName( "loggerName" ).hasArg().withDescription(
         "logger to use: slf4j to use slf4j bridge on top of jul" ).create( "loggerName" );
 
@@ -102,23 +98,10 @@ public class Tomcat7RunnerCli
 
     static
     {
-        options.addOption( httpPort ) //
-            .addOption( httpsPort ) //
-            .addOption( ajpPort ) //
-            .addOption( serverXmlPath ) //
-            .addOption( resetExtract ) //
-            .addOption( help ) //
-            .addOption( debug ) //
-            .addOption( sysProps ) //
-            .addOption( httpProtocol ) //
-            .addOption( clientAuth ) //
-            .addOption( keyAlias ) //
-            .addOption( obfuscate ) //
-            .addOption( extractDirectory ) //
-            .addOption( sessionManagerFactoryClassName ) //
-            .addOption( loggerName ) //
-            .addOption( uriEncoding ) //
-            .addOption( maxPostSize );
+        options.addOption( httpPort ).addOption( httpsPort ).addOption( ajpPort ).addOption( serverXmlPath ).addOption(
+            resetExtract ).addOption( help ).addOption( debug ).addOption( sysProps ).addOption(
+            httpProtocol ).addOption( clientAuth ).addOption( keyAlias ).addOption( obfuscate ).addOption(
+            extractDirectory ).addOption( loggerName ).addOption( uriEncoding ).addOption( maxPostSize );
     }
 
 
@@ -222,12 +205,6 @@ public class Tomcat7RunnerCli
         if ( line.hasOption( extractDirectory.getOpt() ) )
         {
             tomcat7Runner.extractDirectory = line.getOptionValue( extractDirectory.getOpt() );
-        }
-
-        if ( line.hasOption( sessionManagerFactoryClassName.getOpt() ) )
-        {
-            tomcat7Runner.sessionManagerFactoryClassName =
-                line.getOptionValue( sessionManagerFactoryClassName.getOpt() );
         }
 
         if ( line.hasOption( loggerName.getOpt() ) )

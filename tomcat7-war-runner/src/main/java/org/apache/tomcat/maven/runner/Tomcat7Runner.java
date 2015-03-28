@@ -20,14 +20,12 @@ package org.apache.tomcat.maven.runner;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Host;
-import org.apache.catalina.Manager;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Catalina;
 import org.apache.catalina.startup.ContextConfig;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.valves.AccessLogValve;
-import org.apache.catalina.valves.RemoteIpValve;
 import org.apache.juli.ClassLoaderLogManager;
 import org.apache.tomcat.util.ExceptionUtils;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
@@ -70,8 +68,6 @@ public class Tomcat7Runner
 
     public static final String ENABLE_NAMING_KEY = "enableNaming";
 
-    public static final String ENABLE_REMOTE_IP_VALVE = "enableRemoteIpValve";
-    
     public static final String ACCESS_LOG_VALVE_FORMAT_KEY = "accessLogValveFormat";
 
     public static final String CODE_SOURCE_CONTEXT_PATH = "codeSourceContextPath";
@@ -112,8 +108,6 @@ public class Tomcat7Runner
     public String extractDirectory = ".extract";
 
     public File extractDirectoryFile;
-    
-    public String sessionManagerFactoryClassName = null;
 
     public String codeSourceContextPath = null;
 
@@ -278,11 +272,6 @@ public class Tomcat7Runner
                     {
                         host.addChild( ctx );
                     }
-                    
-                    if (sessionManagerFactoryClassName != null) {
-                        boolean cookies = true;
-                        constructSessionManager(ctx, sessionManagerFactoryClassName, cookies);
-                    }
 
                     return ctx;
                 }
@@ -322,16 +311,7 @@ public class Tomcat7Runner
                 tomcat.setConnector( connector );
             }
 
-            boolean enableRemoteIpValve = 
-                Boolean.parseBoolean(runtimeProperties.getProperty( Tomcat7Runner.ENABLE_REMOTE_IP_VALVE, Boolean.TRUE.toString()));
-            
-            if (enableRemoteIpValve) {
-                debugMessage("Adding RemoteIpValve");
-                RemoteIpValve riv = new RemoteIpValve();
-                tomcat.getHost().getPipeline().addValve(riv);
-            }
-            
-            // add a default access log valve
+            // add a default acces log valve
             AccessLogValve alv = new AccessLogValve();
             alv.setDirectory( new File( extractDirectory, "logs" ).getAbsolutePath() );
             alv.setPattern( runtimeProperties.getProperty( Tomcat7Runner.ACCESS_LOG_VALVE_FORMAT_KEY ) );
@@ -472,31 +452,6 @@ public class Tomcat7Runner
             }
         }
     }
-    
-    private void constructSessionManager(Context ctx, String sessionManagerFactoryClassName, boolean cookies) {
-        try {
-            debugMessage("Constructing session manager with factory " + sessionManagerFactoryClassName);
-            Class sessionManagerClass = Class.forName(sessionManagerFactoryClassName);
-        
-            Object managerFactory = (Object) sessionManagerClass.newInstance();
-            
-            Method method = managerFactory.getClass().getMethod("createSessionManager");
-            if (method != null) {
-                Manager manager = (Manager) method.invoke(managerFactory, null);
-            
-                ctx.setManager(manager);
-                ctx.setCookies(cookies);
-                    
-            } else {
-                System.out.print(sessionManagerFactoryClassName + " does not have a method createSessionManager()");
-            }
-        } catch (Exception e) {
-            System.err.println("Unable to construct specified session manager '" + 
-                    sessionManagerFactoryClassName + "': " + e.getLocalizedMessage());
-            e.printStackTrace();
-        }
-    }
-
 
     private URL getContextXml( String warPath )
         throws IOException

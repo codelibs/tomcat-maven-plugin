@@ -22,8 +22,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>tomcat-maven-plugin</artifactId>
-    <groupId>org.apache.tomcat.maven</groupId>
-    <version>2.3-SNAPSHOT</version>
+    <groupId>org.codelibs</groupId>
+    <version>3.0-SNAPSHOT</version>
   </parent>
   <artifactId>tomcat7-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
@@ -154,11 +154,11 @@
 
 
     <dependency>
-      <groupId>org.apache.tomcat.maven</groupId>
+      <groupId>org.codelibs</groupId>
       <artifactId>common-tomcat-maven-plugin</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat.maven</groupId>
+      <groupId>org.codelibs</groupId>
       <artifactId>tomcat7-war-runner</artifactId>
     </dependency>
     <dependency>
@@ -216,7 +216,7 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tomcat.maven</groupId>
+      <groupId>org.codelibs</groupId>
       <artifactId>tomcat-maven-plugin-it</artifactId>
       <scope>test</scope>
     </dependency>

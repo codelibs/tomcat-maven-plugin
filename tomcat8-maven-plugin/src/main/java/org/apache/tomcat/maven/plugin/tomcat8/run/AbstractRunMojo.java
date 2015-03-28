@@ -821,6 +821,19 @@ public abstract class AbstractRunMojo
             {
                 return new FileResource( this, this.webAppPath, file, true );
             }
+
+            if ( path.endsWith( ".tld" ))
+            {
+                if( path.charAt(0) == '/' )
+                {
+                    return super.getResourceInternal( path, false );
+                }
+                else
+                {
+                    return super.getResource( "/WEB-INF/" + path );
+                }
+            }
+
             WebResource webResource = super.getResource( path );
             return webResource;
         }

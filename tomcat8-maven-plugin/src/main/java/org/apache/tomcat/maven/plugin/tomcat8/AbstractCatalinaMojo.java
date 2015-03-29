@@ -19,6 +19,11 @@ package org.apache.tomcat.maven.plugin.tomcat8;
  * under the License.
  */
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.StringTokenizer;
+
 import org.apache.maven.artifact.manager.WagonManager;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
@@ -26,13 +31,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.wagon.authentication.AuthenticationInfo;
 import org.apache.tomcat.maven.common.deployer.TomcatManager;
 import org.apache.tomcat.maven.common.deployer.TomcatManagerException;
-import org.apache.tomcat.maven.plugin.tomcat8.AbstractTomcat8Mojo;
 import org.codehaus.plexus.util.StringUtils;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.StringTokenizer;
 
 /**
  * Abstract goal that provides common configuration for Catalina-based goals.

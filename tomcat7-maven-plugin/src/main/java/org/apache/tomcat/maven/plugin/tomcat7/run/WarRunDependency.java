@@ -18,9 +18,9 @@ package org.apache.tomcat.maven.plugin.tomcat7.run;
  * under the License.
  */
 
-import org.apache.maven.model.Dependency;
-
 import java.io.File;
+
+import org.apache.maven.model.Dependency;
 
 /**
  * @author Olivier Lamy

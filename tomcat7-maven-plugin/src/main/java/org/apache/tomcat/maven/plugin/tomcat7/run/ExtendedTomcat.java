@@ -18,13 +18,13 @@ package org.apache.tomcat.maven.plugin.tomcat7.run;
  * under the License.
  */
 
+import java.io.File;
+
 import org.apache.catalina.Context;
 import org.apache.catalina.Host;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.ContextConfig;
 import org.apache.catalina.startup.Tomcat;
-
-import java.io.File;
 
 /**
  * @author Olivier Lamy

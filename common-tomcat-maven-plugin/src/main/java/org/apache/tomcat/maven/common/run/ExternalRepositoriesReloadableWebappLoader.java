@@ -19,15 +19,15 @@ package org.apache.tomcat.maven.common.run;
  * under the License.
  */
 
-import org.apache.catalina.loader.WebappLoader;
-import org.apache.maven.plugin.logging.Log;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.catalina.loader.WebappLoader;
+import org.apache.maven.plugin.logging.Log;
 
 /**
  * A {@linkplain WebappLoader} implementation that allows scanning for changes to project classpath in support of

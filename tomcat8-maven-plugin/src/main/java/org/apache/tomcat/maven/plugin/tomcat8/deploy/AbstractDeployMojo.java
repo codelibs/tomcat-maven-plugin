@@ -19,15 +19,15 @@ package org.apache.tomcat.maven.plugin.tomcat8.deploy;
  * under the License.
  */
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.tomcat.maven.common.deployer.TomcatManagerException;
 import org.apache.tomcat.maven.common.deployer.TomcatManagerResponse;
 import org.apache.tomcat.maven.plugin.tomcat8.AbstractWarCatalinaMojo;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 
 /**
  * Deploy a WAR to Tomcat.

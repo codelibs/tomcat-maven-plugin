@@ -19,11 +19,11 @@ package org.apache.tomcat.maven.common.messages;
  * under the License.
  */
 
-import org.codehaus.plexus.component.annotations.Component;
-
 import java.text.MessageFormat;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+
+import org.codehaus.plexus.component.annotations.Component;
 
 /**
  * @author Olivier Lamy

@@ -19,13 +19,13 @@ package org.apache.tomcat.maven.common.run;
  * under the License.
  */
 
-import org.apache.maven.plugin.logging.Log;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import org.apache.maven.plugin.logging.Log;
 
 /**
  * Registry which collects all embedded Tomcat Servers so that they will be shutdown

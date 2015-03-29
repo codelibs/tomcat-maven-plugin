@@ -296,11 +296,6 @@
       </dependency>
 
       <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-core</artifactId>
-        <version>${tomcat7Version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-util</artifactId>
         <version>${tomcat7Version}</version>
@@ -405,18 +400,6 @@
         <artifactId>tomcat-juli</artifactId>
         <version>${tomcat7Version}</version>
       </dependency>
-
-      <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-logging-juli</artifactId>
-        <version>${tomcat7Version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-logging-log4j</artifactId>
-        <version>${tomcat7Version}</version>
-      </dependency>
-
 
       <!-- end tomcat dependencies -->
 
@@ -579,11 +562,6 @@
         <groupId>org.codehaus.plexus</groupId>
         <artifactId>plexus-classworlds</artifactId>
         <version>2.2.2</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>10.0.1</version>
       </dependency>
 
       <!-- Test Dependencies -->

@@ -19,9 +19,9 @@ package org.apache.tomcat.maven.plugin.tomcat8.run;
  * under the License.
  */
 
-import org.apache.maven.plugins.annotations.Parameter;
-
 import java.io.File;
+
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Runs the current project as a packaged web application using an embedded Tomcat server.

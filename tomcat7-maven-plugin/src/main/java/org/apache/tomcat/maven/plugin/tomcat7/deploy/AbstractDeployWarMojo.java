@@ -19,13 +19,13 @@ package org.apache.tomcat.maven.plugin.tomcat7.deploy;
  * under the License.
  */
 
+import java.io.File;
+import java.io.IOException;
+
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.tomcat.maven.common.deployer.TomcatManagerException;
 import org.apache.tomcat.maven.common.deployer.TomcatManagerResponse;
-
-import java.io.File;
-import java.io.IOException;
 
 /**
  * @author olamy

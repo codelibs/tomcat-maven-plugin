@@ -18,11 +18,11 @@ package org.apache.tomcat.maven.common.run;
  * under the License.
  */
 
+import java.util.Set;
+
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
-
-import java.util.Set;
 
 /**
  * @author Olivier Lamy

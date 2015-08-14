@@ -817,12 +817,6 @@ public abstract class AbstractRunMojo
                 return new FileResource( this, this.webAppPath, new File( this.buildOutputDirectory ), true );
             }
 
-            File file = new File( path );
-            if ( file.exists() )
-            {
-                return new FileResource( this, this.webAppPath, file, true );
-            }
-
             if ( path.endsWith( ".tld" ))
             {
                 if( path.charAt(0) == '/' )
@@ -836,6 +830,13 @@ public abstract class AbstractRunMojo
             }
 
             WebResource webResource = super.getResource( path );
+            if (!webResource.exists()) {
+                File file = new File( path );
+                if ( file.exists() )
+                {
+                    return new FileResource( this, this.webAppPath, file, true );
+                }
+            }
             return webResource;
         }
 
